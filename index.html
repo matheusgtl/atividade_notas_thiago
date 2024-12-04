@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Sistema de Notas Aprimorado</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Sistema de Notas Aprimorado</h2>
+        <div class="form-group">
+            <label for="nome"><i class="fas fa-user"></i>Nome do Aluno:</label>
+            <input type="text" id="nome" placeholder="Digite o nome completo" required>
+        </div>
+        <div class="form-group">
+            <label for="disciplina">Disciplina:</label>
+            <select id="disciplina" required>
+                <option value="">Selecione uma disciplina</option>
+                <option value="matematica">Matemática</option>
+                <option value="português">Português</option>
+                <option value="historia">História</option>
+                <option value="geografia">Geografia</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="nota1">1º Bimestre:</label>
+            <input type="number" id="nota1" min="0" max="10" step="0.1" required>
+        </div>
+        <div class="form-group">
+            <label for="nota2">2º Bimestre:</label>
+            <input type="number" id="nota2" min="0" max="10" step="0.1" required>
+        </div>
+        <div class="form-group">
+            <label for="nota3">3º Bimestre:</label>
+            <input type="number" id="nota3" min="0" max="10" step="0.1" required>
+        </div>
+        <div class="form-group">
+            <label for="nota4">4º Bimestre:</label>
+            <input type="number" id="nota4" min="0" max="10" step="0.1" required>
+        </div>
+        <button onclick="calcularMedia()">Calcular Média</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function calcularMedia() {
+            const nome = document.getElementById('nome').value.trim();
+            const disciplina = document.getElementById('disciplina').value;
+            const nota1 = parseFloat(document.getElementById('nota1').value);
+            const nota2 = parseFloat(document.getElementById('nota2').value);
+            const nota3 = parseFloat(document.getElementById('nota3').value);
+            const nota4 = parseFloat(document.getElementById('nota4').value);
+            const resultadoDiv = document.getElementById('resultado');
+
+            // Verificar se todas as informações foram preenchidas
+            if (nome === '' || disciplina === '' || isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)) {
+                resultadoDiv.innerHTML = 'Por favor, preencha todos os campos obrigatórios.';
+                resultadoDiv.className = 'reprovado';
+                return;
+            }
+
+            // Calcular a média
+            const media = (nota1 + nota2 + nota3 + nota4) / 4;
+
+            // Verificar a aprovação
+            if (media >= 7) {
+                resultadoDiv.innerHTML = `Parabéns, ${nome}! Você foi aprovado em ${disciplina} com média ${media.toFixed(2)}.`;
+                resultadoDiv.className = 'aprovado';
+            } else {
+                resultadoDiv.innerHTML = `Sinto muito, ${nome}. Você foi reprovado em ${disciplina} com média ${media.toFixed(2)}.`;
+                resultadoDiv.className = 'reprovado';
+            }
+        }
+    </script>
+</body>
+</html>

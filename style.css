@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1a0033, #000000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #e0e0e0;
+}
+.container {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+    width: 400px;
+    border: 1px solid #4a154b;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #b84dff;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #c0c0c0;
+}
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #4a154b;
+    border-radius: 4px;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+}
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #8a2be2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #6a1b9a;
+}
+#resultado {
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+.aprovado {
+    color: #4dff4d;
+}
+.reprovado {
+    color: #ff4d4d;
+}
